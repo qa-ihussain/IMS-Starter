@@ -31,6 +31,7 @@ public class Utils {
 		} while (longInput == null);
 		return longInput;
 	}
+		
 
 	public String getString() {
 		return scanner.nextLine();
@@ -47,6 +48,19 @@ public class Utils {
 			}
 		} while (doubleInput == null);
 		return doubleInput;
+	}
+	
+	public Boolean getBoolean() {
+		String input = getString();
+		Boolean bool = null;
+		do {
+			try {
+				bool = Boolean.parseBoolean(input);
+			} catch (Exception e) {
+				LOGGER.info("Error - Please enter TRUE or FALSE");
+			}
+		} while (bool == null);
+		return bool;
 	}
 
 }

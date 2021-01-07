@@ -2,27 +2,38 @@ package com.qa.ims.persistence.domain;
 
 public class Customer {
 
-	private Long id;
+	private Long customerID;
 	private String firstName;
-	private String surname;
+	private String lastName;
+	private String emailAddress;
+	private String addressLine1;
+	private String postcode;
+	
 
-	public Customer(String firstName, String surname) {
+	public Customer(String firstName, String lastName, String emailAddress, String addressLine1, String postcode) {
 		this.firstName = firstName;
-		this.surname = surname;
+		this.lastName = lastName;
+		this.emailAddress = emailAddress;
+		this.addressLine1 = addressLine1;
+		this.postcode = postcode;
 	}
 
-	public Customer(Long id, String firstName, String surname) {
-		this.id = id;
+	public Customer(Long customerID, String firstName, String lastName, String emailAddress, String addressLine1, String postcode){
+		this.customerID = customerID;
 		this.firstName = firstName;
-		this.surname = surname;
+		this.lastName = lastName;
+		this.emailAddress = emailAddress;
+		this.addressLine1 = addressLine1;
+		this.postcode = postcode;
 	}
 
-	public Long getId() {
-		return id;
+	
+	public Long getCustomerID() {
+		return customerID;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCustomerID(Long customerID) {
+		this.customerID = customerID;
 	}
 
 	public String getFirstName() {
@@ -33,19 +44,38 @@ public class Customer {
 		this.firstName = firstName;
 	}
 
-	public String getSurname() {
-		return surname;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	@Override
-	public String toString() {
-		return "id:" + id + " first name:" + firstName + " surname:" + surname;
+	public String getEmailAddress() {
+		return emailAddress;
 	}
 
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+
+	public String getAddressLine1() {
+		return addressLine1;
+	}
+
+	public void setAddressLine1(String addressLine1) {
+		this.addressLine1 = addressLine1;
+	}
+
+	public String getPostcode() {
+		return postcode;
+	}
+
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -60,17 +90,31 @@ public class Customer {
 				return false;
 		} else if (!firstName.equals(other.firstName))
 			return false;
-		if (id == null) {
-			if (other.id != null)
+		if (customerID == null) {
+			if (other.customerID != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!customerID.equals(other.customerID))
 			return false;
-		if (surname == null) {
-			if (other.surname != null)
+		if (lastName == null) {
+			if (other.lastName != null)
 				return false;
-		} else if (!surname.equals(other.surname))
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		if (emailAddress == null) {
+			if (other.emailAddress != null)
+				return false;
+		} else if (!emailAddress.equals(other.emailAddress))
+			return false;
+		if (addressLine1 == null) {
+			if (other.addressLine1 != null)
+				return false;
+		} else if (!addressLine1.equals(other.addressLine1))
+			return false;
+		if (postcode == null) {
+			if (other.postcode != null)
+				return false;
+		} else if (!postcode.equals(other.postcode))
 			return false;
 		return true;
 	}
-
 }
