@@ -1,7 +1,7 @@
-Coverage: 34%
-# Project Title
+Coverage: 68.1%
+# Inventory Management System Project
 
-One Paragraph of project description goes here
+This project considers all the fundamental training that has been given to create an inventory style programme. The aim of this project was to create a functional application using an SQL codebase. 
 
 ## Getting Started
 
@@ -9,11 +9,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+To recreate this project, you will need the following softwares:
 
-```
-Give examples
-```
+- Java 14 or later
+- Eclipse or any other integrated development environment (IDE) 
+- Maven
+- Local or GCP-based MySQL instance 
 
 ### Installing
 
@@ -35,7 +36,7 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Running the tests
 
-Explain how to run the automated tests for this system. Break down into which tests and what they do
+All tests are located under the scr/test directory
 
 ### Unit Tests 
 
