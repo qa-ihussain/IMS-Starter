@@ -3,7 +3,7 @@ CREATE SCHEMA IF NOT EXISTS `ims`;
 USE `ims`;
 
 
-CREATE TABLE `ims`.`customers`
+CREATE TABLE `ims`.`customer`
 (
    `customer_id` int NOT NULL AUTO_INCREMENT,
    `first_name` varchar (45) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE `ims`.`customers`
    PRIMARY KEY (`customer_id`)
 );
 
-CREATE TABLE IF NOT EXISTS `ims`.`items`
+CREATE TABLE IF NOT EXISTS `ims`.`item`
 (
    `product_id` int NOT NULL AUTO_INCREMENT,
    `product_name` varchar (70) NOT NULL,
@@ -34,8 +34,8 @@ CREATE TABLE IF NOT EXISTS `ims`.`orders`
    `total_price` double NOT NULL,
    `order_status` boolean DEFAULT FALSE,
    PRIMARY KEY (`order_id`),
-   FOREIGN KEY (`customer_id`) REFERENCES `ims`.`customers` (`customer_id`),
-   FOREIGN KEY (`product_id`) REFERENCES `ims`.`items` (`product_id`)
+   FOREIGN KEY (`customer_id`) REFERENCES `ims`.`customer` (`customer_id`),
+   FOREIGN KEY (`product_id`) REFERENCES `ims`.`item` (`product_id`)
 );
 
 CREATE TABLE IF NOT EXISTS `ims`.`orderline`
@@ -45,5 +45,5 @@ CREATE TABLE IF NOT EXISTS `ims`.`orderline`
    `product_id` int,
    PRIMARY KEY (`orderline_id`),
    FOREIGN KEY (`order_id`) REFERENCES `ims`.`orders` (`order_id`),
-   FOREIGN KEY (`product_id`) REFERENCES `ims`.`items` (`product_id`)
+   FOREIGN KEY (`product_id`) REFERENCES `ims`.`item` (`product_id`)
 );

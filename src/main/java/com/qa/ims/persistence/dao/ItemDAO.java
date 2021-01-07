@@ -37,7 +37,7 @@ public class ItemDAO implements Dao<Item> {
 	public List<Item> readAll() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("select * from items");) {
+				ResultSet resultSet = statement.executeQuery("select * from item");) {
 			List<Item> item = new ArrayList<>();
 			while (resultSet.next()) {
 				item.add(modelFromResultSet(resultSet));
@@ -53,7 +53,7 @@ public class ItemDAO implements Dao<Item> {
 	public Item readLatest() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM items ORDER BY product_id DESC LIMIT 1");) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM item ORDER BY product_id DESC LIMIT 1");) {
 			resultSet.next();
 			return modelFromResultSet(resultSet);
 		} catch (Exception e) {
@@ -72,7 +72,7 @@ public class ItemDAO implements Dao<Item> {
 	public Item create(Item item) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("INSERT INTO items(product_name, artist_name, release_date, product_price, product_qty) values('" + item.getProductName()
+			statement.executeUpdate("INSERT INTO item(product_name, artist_name, release_date, product_price, product_qty) values('" + item.getProductName()
 					+ "','" + item.getArtistName() + "','" + item.getReleaseDate() + "','" + item.getProductPrice() + "','" + item.getProductQty() + "')");
 			return readLatest();
 		} catch (Exception e) {
@@ -85,7 +85,7 @@ public class ItemDAO implements Dao<Item> {
 	public Item readItem(Long productID) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM items where product_id = " + productID);) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM item where product_id = " + productID);) {
 			resultSet.next();
 			return modelFromResultSet(resultSet);
 		} catch (Exception e) {
@@ -106,7 +106,7 @@ public class ItemDAO implements Dao<Item> {
 	public Item update(Item item) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("update items set product_name ='" + item.getProductName() + "', artist_name ='"
+			statement.executeUpdate("update item set product_name ='" + item.getProductName() + "', artist_name ='"
 					+ item.getArtistName() + "' release_date =" + item.getReleaseDate()
 					 + "' product_price =" + item.getProductPrice() + "'product_qty =" + item.getProductQty() + "'where product_id =" + item.getProductID());
 			return readItem(item.getProductID());
@@ -126,7 +126,7 @@ public class ItemDAO implements Dao<Item> {
 	public int delete(long productID) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) {
-			return statement.executeUpdate("delete from items where product_id = " + productID);
+			return statement.executeUpdate("delete from item where product_id = " + productID);
 		} catch (Exception e) {
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
