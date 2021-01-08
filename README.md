@@ -1,11 +1,13 @@
-Coverage: 68.1%
+Coverage: 71.4% overall coverage
+          65.7% in <main/src/java>
+          
 # Inventory Management System Project
 
 This project considers all the fundamental training that has been given to create an inventory style programme. The aim of this project was to create a functional application using an SQL codebase. 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+In order to replicate this project, you will need to fork the repository from [here](https://github.com/JHarry444/IMS-Starter) and then clone it to the IDE you are using. From there you are able to push and create branches.
 
 ### Prerequisites
 
@@ -17,26 +19,22 @@ To recreate this project, you will need the following softwares:
 - Local or GCP-based MySQL instance 
 
 ### Jira 
-https://ihussain.atlassian.net/secure/RapidBoard.jspa?projectKey=IP&useStoredSettings=true&rapidView=2
+Jira [Scrum board](https://ihussain.atlassian.net/secure/RapidBoard.jspa?projectKey=IP&useStoredSettings=true&rapidView=2)
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+The main thing you will need is an IDE and Java 14 or later as stated in the prerequisites to do this, you will need to manually install [Java.zip](https://www.oracle.com/java/technologies/javase/jdk14-archive-downloads.html)
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
+To manually install you will need to: 
+- Unzip the folder
+- Go to your OS Drive > Program Files and create a folder titled <Java> 
+ - Copy and paste the jdk-14.0.1 folder into the folder 
+  - Open a CMD and enter <java -version>
+ - Go to <System environment variables> then create a new system variable called <JAVA_HOME> and set it to the pathfile of your JDK 
+  - Enter the path system variable and add %JAVA_HOME%\bin 
+ - Open CMD and type <java> and you should be able to run the program 
+  
+ 
 ## Running the tests
 
 All tests are located under the scr/test directory
