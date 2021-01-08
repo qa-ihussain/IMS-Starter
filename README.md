@@ -16,6 +16,9 @@ To recreate this project, you will need the following softwares:
 - Maven
 - Local or GCP-based MySQL instance 
 
+### Jira 
+https://ihussain.atlassian.net/secure/RapidBoard.jspa?projectKey=IP&useStoredSettings=true&rapidView=2
+
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
