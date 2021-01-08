@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `ims`.`item`
    `product_id` int NOT NULL AUTO_INCREMENT,
    `product_name` varchar (70) NOT NULL,
    `artist_name` varchar (70) NOT NULL,
-   `release_date` date NOT NULL,
+   `release_date` double NOT NULL,
    `product_price` double NOT NULL,
    `product_qty` double NOT NULL,
    PRIMARY KEY (`product_id`)
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `ims`.`orders`
    `product_id` int NOT NULL,
    `order_qty` int NOT NULL,
    `total_price` double NOT NULL,
-   `order_status` boolean DEFAULT FALSE,
+   `order_status` BOOLEAN DEFAULT FALSE,
    PRIMARY KEY (`order_id`),
    FOREIGN KEY (`customer_id`) REFERENCES `ims`.`customer` (`customer_id`),
    FOREIGN KEY (`product_id`) REFERENCES `ims`.`item` (`product_id`)
@@ -41,8 +41,8 @@ CREATE TABLE IF NOT EXISTS `ims`.`orders`
 CREATE TABLE IF NOT EXISTS `ims`.`orderline`
 (
    `orderline_id` int NOT NULL AUTO_INCREMENT,
-   `order_id` int,
-   `product_id` int,
+   `order_id` int NOT NULL,
+   `product_id` int NOT NULL,
    PRIMARY KEY (`orderline_id`),
    FOREIGN KEY (`order_id`) REFERENCES `ims`.`orders` (`order_id`),
    FOREIGN KEY (`product_id`) REFERENCES `ims`.`item` (`product_id`)
