@@ -41,25 +41,24 @@ All tests are located under the scr/test directory
 
 ### Unit Tests 
 
-Explain what these tests test, why and how to run them
+To test the coverage, you are able to right click (a single test class or your overall project) then select Coverage As... JUnit test which will show the test coverage
+
+Testing via JUnit, you right click and Run As... JUnit test for your test classes
 
 ```
-Give an example
+scr/test/java/com.qa.ims.controllers
+          CustomerControllerTest.java
+
+scr/test/java/com.qa.ims.persistence.dao
+          CustomerDAOTest.java
 ```
 
 ### Integration Tests 
-Explain what these tests test, why and how to run them
+
+This was not completed however, to do this you need to run Maven
 
 ```
-Give an example
-```
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
 ```
 
 ## Deployment
@@ -86,6 +85,6 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Piers Barber and Pawel Stypulkowski for assistance needed throughout the project
+* 
+* 
