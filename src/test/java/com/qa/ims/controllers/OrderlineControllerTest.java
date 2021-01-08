@@ -13,7 +13,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.qa.ims.controller.OrderlineController;
-import com.qa.ims.persistence.dao.OrderlineDAOTest;
+import com.qa.ims.persistence.dao.OrderlineDAO;
 import com.qa.ims.persistence.domain.Orderline;
 import com.qa.ims.utils.Utils;
 
@@ -24,7 +24,7 @@ public class OrderlineControllerTest {
 	private Utils utils;
 
 	@Mock
-	private OrderlineDAOTest dao;
+	private OrderlineDAO dao;
 
 	@InjectMocks
 	private OrderlineController controller;
@@ -57,16 +57,17 @@ public class OrderlineControllerTest {
 
 	@Test
 	public void testUpdate() {
-		Orderline updated = new Orderline(1L, 2L);
+		Orderline updated = new Orderline(1L, 1L, 2L);
 
-		Mockito.when(this.utils.getLong()).thenReturn(1L);
+		Mockito.when(this.utils.getLong()).thenReturn(1L, 2L);
 		Mockito.when(this.utils.getLong()).thenReturn(updated.getOrderID(), updated.getProductID());
-		Mockito.when(this.dao.update(updated)).thenReturn(updated);
-
+		Mockito.when(dao.update(Mockito.any(Orderline.class))).thenReturn(updated);
+		
+		
 		assertEquals(updated, this.controller.update());
 
-		Mockito.verify(this.utils, Mockito.times(1)).getLong();
-		Mockito.verify(this.dao, Mockito.times(2)).update(updated);
+		Mockito.verify(this.utils, Mockito.times(2)).getLong();
+		Mockito.verify(this.dao, Mockito.times(1)).update(updated);
 	}
 
 	@Test

@@ -38,11 +38,12 @@ CREATE TABLE IF NOT EXISTS `ims`.`orders`
    FOREIGN KEY (`product_id`) REFERENCES `ims`.`item` (`product_id`)
 );
 
+
 CREATE TABLE IF NOT EXISTS `ims`.`orderline`
 (
    `orderline_id` int NOT NULL AUTO_INCREMENT,
-   `order_id` int,
-   `product_id` int,
+   `order_id` int NOT NULL,
+   `product_id` int NOT NULL,
    PRIMARY KEY (`orderline_id`),
    FOREIGN KEY (`order_id`) REFERENCES `ims`.`orders` (`order_id`),
    FOREIGN KEY (`product_id`) REFERENCES `ims`.`item` (`product_id`)

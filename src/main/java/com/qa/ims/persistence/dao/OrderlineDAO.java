@@ -82,13 +82,29 @@ public class OrderlineDAO implements Dao<Orderline> {
 	public Orderline readOrders(Long orderlineID) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM orderline where orderline_id = " + orderlineID);) {
+				ResultSet resultSet = statement
+						.executeQuery("SELECT * FROM orderline where orderline_id = " + orderlineID);) {
 			resultSet.next();
 			return modelFromResultSet(resultSet);
 		} catch (Exception e) {
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
 		}
+		return null;
+	}
+	
+	public Orderline readOrderline(Long orderlineID) {
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				Statement statement = connection.createStatement();
+				ResultSet resultSet = statement.executeQuery("select * from orderline");) {
+		
+			resultSet.next();
+				return (modelFromResultSet(resultSet));
+			
+		} catch (SQLException e) {
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
+		} 
 		return null;
 	}
 
@@ -100,7 +116,7 @@ public class OrderlineDAO implements Dao<Orderline> {
 	 * @return
 	 */
 	@Override
-	public Orderline update(Orderline orderline) {
+	public Orderline update(Orderline orderline)  {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) {
 			statement.executeUpdate("update orderline set order_id ='" + orderline.getOrderID() + "', product_id ='"
@@ -113,9 +129,7 @@ public class OrderlineDAO implements Dao<Orderline> {
 		return null;
 	}
 
-		private Orderline readOrderline(Long orderlineID) {
-		return null;
-	}
+	
 
 	/**
 	 * Deletes a customer in the database

@@ -35,7 +35,7 @@ public class OrderlineDAOTest {
 	@Test
 	public void testReadAll() {
 		List<Orderline> expected = new ArrayList<>();
-		expected.add(new Orderline(1L, 1L));
+		expected.add(new Orderline(1L, 1L, 1L));
 		assertEquals(expected, DAO.readAll());
 	}
 

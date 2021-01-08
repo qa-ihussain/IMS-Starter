@@ -14,4 +14,4 @@ INSERT INTO `ims`.`orders` (`order_id`, `customer_id`, `product_id`, `order_qty`
 INSERT INTO `ims`.`orders` (`order_id`, `customer_id`, `product_id`, `order_qty`, `total_price`, `order_status`) VALUES (1, 4, 1, 10.99, FALSE);
 INSERT INTO `ims`.`orders` (`order_id`, `customer_id`, `product_id`, `order_qty`, `total_price`, `order_status`) VALUES (3, 3, 1, 11.79, FALSE);
 
-INSERT INTO `ims`.`orderline` (`order_id`, `product_id`) VALUES (1, 5);
+INSERT INTO `ims`.`orderline` (`order_id`, `product_id`) VALUES (1, 1);
